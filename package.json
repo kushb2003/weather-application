@@ -1,0 +1,10 @@
+{
+  "name": "weather-application",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Weather app with a server-side OpenWeatherMap proxy (API key read from OWM_API_KEY)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  }
+}
