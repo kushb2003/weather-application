@@ -1,11 +1,15 @@
-const apiurl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
-const apikey="74dda9ad8a132d1dafbaa57f9b359f33";
+// Weather data is fetched through the server-side proxy (server.js), which
+// adds the OpenWeatherMap API key from its environment. No key is shipped to the browser.
+const apiurl = "/api/weather?q=";
 const searchbox=document.querySelector(".sea input")
 const weatherbutton=document.querySelector(".sea button")
 const weathericon=document.querySelector(".weather-icon")
 
 async function checkweather(city){
-    const response= await fetch(apiurl+city+`&appid=${apikey}`);
+    const response= await fetch(apiurl+encodeURIComponent(city));
+    if(!response.ok){
+        return;
+    }
     var data =  await response.json();
     
 
